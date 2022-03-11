@@ -1,5 +1,30 @@
 {
   "name": "culture-takehome",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michelleahuang/culture-biosciences-takehome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michelleahuang/culture-biosciences-takehome/issues"
+  },
+  "homepage": "https://github.com/michelleahuang/culture-biosciences-takehome#readme"
 }
