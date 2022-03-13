@@ -1,4 +1,5 @@
 export const fetchAllImages = () => {
+    
     return $.ajax({
         method: 'GET',
         url: `api/images`

@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/michelleahuang/culture-biosciences-takehome/issues"
   },
-  "homepage": "https://github.com/michelleahuang/culture-biosciences-takehome#readme"
+  "homepage": "https://github.com/michelleahuang/culture-biosciences-takehome#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0"
+  }
 }
