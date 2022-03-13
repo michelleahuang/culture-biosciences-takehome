@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const ImagesIndex = (props) => {
+function ImagesIndex(props) {
 
     useEffect(() => {
         props.fetchAllImages();
