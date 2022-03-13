@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_035451) do
+ActiveRecord::Schema.define(version: 2022_03_13_040651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
     t.text "url", null: false
-    t.string "type", default: "unclassified", null: false
+    t.string "foamType", default: "unclassified", null: false
     t.string "lastModified", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type"], name: "index_images_on_type"
+    t.index ["foamType"], name: "index_images_on_foamType"
     t.index ["url"], name: "index_images_on_url"
   end
 

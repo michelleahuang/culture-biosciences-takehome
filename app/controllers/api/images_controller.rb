@@ -21,6 +21,6 @@ class Api::ImagesController < ApplicationController
 
     private 
     def image_params 
-        params.require(:image).permit(:type, :lastModified, :url)
+        params.require(:image).permit(:foamType, :lastModified, :url)
     end
 end

@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-    validates :url, :type, :date, presence: true
+    validates :url, :foamType, :lastModified, presence: true
 end

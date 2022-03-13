@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+seeds = JSON.parse(File.read('/Users/michellehuang/Desktop/culture-takehome/public/foam-seed.json'))
+
+seeds.each do |seed|
+    Image.create!(seed)
+end
