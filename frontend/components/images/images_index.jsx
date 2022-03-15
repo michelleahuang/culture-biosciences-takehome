@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from '../pagination';
 
 function ImagesIndex(props) {
 
@@ -15,11 +16,14 @@ function ImagesIndex(props) {
     const currentImages = props.images.slice(indexOfFirstImage, indexOfLastImage);
 
     return (
-        <ul>
-            {currentImages.map((image, idx) => {
-                return <li key={idx}>{image.url}</li>
-            })}
-        </ul>
+        <div>
+            <ul>
+                {currentImages.map((image, idx) => {
+                    return <li key={idx}>{image.url}</li>
+                })}
+            </ul>
+            <Pagination imagesPerPage={imagesPerPage} totalImages={props.images.length}/>
+        </div>
     );
 
 }
