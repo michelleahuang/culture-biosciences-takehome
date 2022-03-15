@@ -15,6 +15,10 @@ function ImagesIndex(props) {
     const indexOfFirstImage = indexOfLastImage - imagesPerPage;
     const currentImages = props.images.slice(indexOfFirstImage, indexOfLastImage);
 
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+
     return (
         <div>
             <ul>
@@ -22,7 +26,7 @@ function ImagesIndex(props) {
                     return <li key={idx}>{image.url}</li>
                 })}
             </ul>
-            <Pagination imagesPerPage={imagesPerPage} totalImages={props.images.length}/>
+            <Pagination imagesPerPage={imagesPerPage} totalImages={props.images.length} paginate={paginate}/>
         </div>
     );
 
