@@ -9,10 +9,10 @@ function Pagination( {imagesPerPage, totalImages}) {
 
     return (
         <div>
-            <ul>
+            <ul className="pagination">
                 {imageNumbers.map(number => 
-                    <li key={number}>
-                        <a>{number}</a>
+                    <li key={number} className="page-item">
+                        <a href="#" className="page-link">{number}</a>
                     </li>
                 )}
             </ul>
