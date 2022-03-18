@@ -1,17 +1,22 @@
 .header-div {
     width: 100vw;
-    height: 60px;
+    height: 100px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .header-links {
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.link {
-    margin-right: 20px;
+.header-links h1 {
+    margin-bottom: 0;
 }
 
 .header-placeholder {
