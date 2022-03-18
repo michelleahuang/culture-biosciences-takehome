@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '../pagination';
+import ImagesShow from './images_show';
 
 function ImagesIndex(props) {
 
@@ -26,6 +27,7 @@ function ImagesIndex(props) {
                     return (
                         <li key={idx}>
                             <img className="image" src={image.url}></img>
+                            <p>Go to Image</p>
                         </li>
                     )
                 })}

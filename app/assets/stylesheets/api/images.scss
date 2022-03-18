@@ -18,6 +18,12 @@
     padding-right: 2rem;
 }
 
+.image-grid li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .image {
     width: 100%;
     object-fit: contain;
