@@ -20,10 +20,14 @@ function ImagesIndex(props) {
     }
 
     return (
-        <div>
-            <ul>
+        <div className="index-container">
+            <ul className="image-grid" >
                 {currentImages.map((image, idx) => {
-                    return <li key={idx}>{image.url}</li>
+                    return (
+                        <li key={idx}>
+                            <img className="image" src={image.url}></img>
+                        </li>
+                    )
                 })}
             </ul>
             <Pagination imagesPerPage={imagesPerPage} totalImages={props.images.length} paginate={paginate}/>
