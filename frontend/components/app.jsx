@@ -10,8 +10,8 @@ const App = () => {
         <div>
             <Header />
             <Routes>
-                <Route exact path="/images/:id" element={<ImagesShowContainer />}></Route>
-                <Route exact path="/" element={<ImagesIndexContainer />}></Route>
+                <Route path="images/:id" element={<ImagesShowContainer />}></Route>
+                <Route path="/" element={<ImagesIndexContainer />}></Route>
             </Routes>
         </div>
     )
