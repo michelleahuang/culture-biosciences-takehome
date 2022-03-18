@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ImagesIndexContainer from './images/images_index_container';
+import ImagesShowContainer from './images/images_show_container';
 import Header from './header/header.jsx';
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
         <div>
             <Header />
             <Routes>
-                <Route path="/" element={<ImagesIndexContainer />}></Route>
+                <Route exact path="/images/:id" element={<ImagesShowContainer />}></Route>
+                <Route exact path="/" element={<ImagesIndexContainer />}></Route>
             </Routes>
         </div>
     )
