@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 
 function ImagesShow(props) {
+
+    useEffect(() => {
+        props.fetchImage(props.image.id);
+    }, [])
+
+    console.log(props.image);
     return (
         <div>
-            Hi
+            {/* {props.image} */}
+            {/* <img className="image" src={props.image.url}></img> */}
         </div>
     )
 

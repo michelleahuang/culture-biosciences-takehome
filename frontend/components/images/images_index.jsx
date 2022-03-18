@@ -27,7 +27,7 @@ function ImagesIndex(props) {
                     return (
                         <li key={idx}>
                             <img className="image" src={image.url}></img>
-                            <p>Go to Image</p>
+                            <Link to={`/images/${image.id}`}>Go to Image</Link>
                         </li>
                     )
                 })}
