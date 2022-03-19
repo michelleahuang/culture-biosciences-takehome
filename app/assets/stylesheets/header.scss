@@ -5,10 +5,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
+    font-family: 'Spartan', sans-serif;
 }
 
 .logo {
     height: 90px;
+    margin: 10px 0;
 }
 
 .header-links {
@@ -19,6 +22,17 @@
     align-items: center;
 }
 
-.header-placeholder {
+.header-link {
+    padding: 10px 20px;    
+    background-color: #fcce3b;
+    color: #343434;
+    letter-spacing: 1.17px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.header-link:hover {
     color: white;
+    background-color: #091748;
 }

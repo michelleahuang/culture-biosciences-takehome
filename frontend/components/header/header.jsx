@@ -7,8 +7,7 @@ function Header() {
         <div className='header-div'>
             <div className="header-links">
                 <img className="logo" src={logo}></img>
-                <Link to={`/#`}>Back to Index</Link>
-
+                <Link className="header-link" to={`/#`}>BACK TO INDEX</Link>
             </div>
         </div>
     )
