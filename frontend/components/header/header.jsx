@@ -6,7 +6,7 @@ function Header() {
     return (
         <div className='header-div'>
             <div className="header-links">
-                <h1>Culture Biosciences</h1>
+                <img className="logo" src={logo}></img>
                 <Link to={`/#`}>Back to Index</Link>
 
             </div>

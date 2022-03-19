@@ -7,16 +7,16 @@
     align-items: center;
 }
 
+.logo {
+    height: 90px;
+}
+
 .header-links {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.header-links h1 {
-    margin-bottom: 0;
 }
 
 .header-placeholder {
