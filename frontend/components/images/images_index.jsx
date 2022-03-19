@@ -4,36 +4,67 @@ import Pagination from '../pagination';
 
 function ImagesIndex(props) {
 
-    const [images, setImages] = useState([]);
+    const [foamType, setfoamType] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
     const [imagesPerPage, setImagesPerPage] = useState(100);
+    const [allImages, setAllImages] = useState([]);
+    const [filteredImages, setFilteredImages] = useState([]);
 
     useEffect(() => {
-        props.fetchAllImages();
+        props.fetchAllImages().then((res) => {
+            const images = Object.values(res.images);
+            setAllImages(images);
+            setFilteredImages(images);
+        });
     }, [])
+    
+    useEffect(() => {
+        filter();
+    }, [foamType]);
+
+    function filterType(e) {
+        setfoamType(e.target.value);
+    }
+
+    function filter() {
+        if (foamType !== 'all') {
+            setFilteredImages(allImages.filter(image => image.foamType === foamType));
+        } else {
+            setFilteredImages(allImages);
+        }
+    }
 
     const indexOfLastImage = currentPage * imagesPerPage;
     const indexOfFirstImage = indexOfLastImage - imagesPerPage;
-    const currentImages = props.images.slice(indexOfFirstImage, indexOfLastImage);
+    const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
+
     return (
-        <div className="index-container">
-            <ul className="image-grid" >
-                {currentImages.map((image, idx) => {
-                    return (
-                        <li key={idx}>
-                            <img className="image" src={image.url}></img>
-                            <Link to={`/images/${image.id}`}>Go to Image</Link>
-                        </li>
-                    )
-                })}
-            </ul>
-            <Pagination imagesPerPage={imagesPerPage} totalImages={props.images.length} paginate={paginate}/>
-        </div>
+        <>
+            <select onChange={filterType}>
+                <option value="all" onChange={filterType}>All</option>
+                <option value="foaming" onChange={filterType}>Foaming</option>
+                <option value="non-foaming" onChange={filterType}>Non-Foaming</option>
+                <option value="unclassified" onChange={filterType}>Unclassified</option>
+            </select>
+            <div className="index-container">
+                <ul className="image-grid" >
+                    {currentImages.map((image, idx) => {
+                        return (
+                            <li key={idx}>
+                                <img className="image" src={image.url}></img>
+                                <Link to={`/images/${image.id}`}>Go to Image</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <Pagination imagesPerPage={imagesPerPage} totalImages={filteredImages.length} paginate={paginate}/>
+            </div>
+        </>
     );
 
 }

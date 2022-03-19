@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -6,7 +7,8 @@ function Header() {
         <div className='header-div'>
             <div className="header-links">
                 <h1>Culture Biosciences</h1>
-                <p className="link">Back to Index</p>
+                <Link to={`/#`}>Back to Index</Link>
+
             </div>
         </div>
     )
