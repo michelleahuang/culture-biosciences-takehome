@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import ImagesShow from './images_show';
-import { fetchImage } from '../../actions/image_actions';
+import { fetchImage, updateImage } from '../../actions/image_actions';
 
-const mapStateToProps = (state, ownProps) => {
-    console.log(state);
+const mapStateToProps = (state) => {
     return {
-        image: state.entities.images[ownProps.match.params.id]
+        image: state.entities.images
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchImage: (id) => dispatch(fetchImage(id))
+        fetchImage: (id) => dispatch(fetchImage(id)),
+        updateImage: (image) => dispatch(updateImage(image))
     }
 }
 

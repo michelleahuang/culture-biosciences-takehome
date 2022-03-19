@@ -7,13 +7,13 @@ import Header from './header/header.jsx';
 const App = () => {
 
     return (
-        <div>
+        <>
             <Header />
             <Switch>
                 <Route exact path="/images/:id" component={ImagesShowContainer}></Route>
                 <Route exact path="/" component={ImagesIndexContainer}></Route>
             </Switch>
-        </div>
+        </>
     )
 }
 

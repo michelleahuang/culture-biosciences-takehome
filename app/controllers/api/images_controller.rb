@@ -13,8 +13,8 @@ class Api::ImagesController < ApplicationController
 
     def update
         @image = Image.find_by(id: params[:id])
-        if @post 
-            @post.update(post_params)
+        if @image
+            @image.update(image_params)
             render :show 
         end
     end
