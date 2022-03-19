@@ -1,10 +1,11 @@
 import React, { useEffect, useState }  from 'react';
+import { withRouter } from 'react-router-dom';
 
 function ImagesShow(props) {
 
     useEffect(() => {
         props.fetchImage(props.match.params.id).then((response)=> setfoamType(response.image.foamType));
-    }, []);
+    }, [props.match.params.id]);
     
     const [foamType, setfoamType] = useState("");
     
@@ -17,9 +18,18 @@ function ImagesShow(props) {
         setfoamType(e.currentTarget.value);
     }
 
+    function changeImage(type) {
+        props.history.push(`/images/${type === "prev" ? props.image.id - 1 : props.image.id + 1}`)
+    }
+
     return (
         <div>
-            <img className="image-show" src={props.image.url}></img>
+            <div>
+                
+                {(props.image.id !== 1) ? <button onClick={() => changeImage("prev")}>Previous</button> : ""}
+                <img className="image-show" src={props.image.url}></img>
+                <button onClick={() => changeImage("next")}>Next</button>
+            </div>
             <form onSubmit={handleSubmit}>
                 <label>Foaming
                     <input type="radio" checked={foamType === 'foaming'} name="option" value="foaming" onChange={update}></input>
@@ -38,3 +48,4 @@ function ImagesShow(props) {
 }
 
 export default ImagesShow;
+// export default withRouter(ImagesShow);
