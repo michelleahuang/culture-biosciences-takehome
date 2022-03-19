@@ -55,25 +55,27 @@ function ImagesShow(props) {
     useKey("ArrowLeft", handleLeft)
 
     return (
-        <div>
-            {new Date(props.image.lastModified).toLocaleString()}
-            <div>
-                {(props.image.id !== 1) ? <button id="button" onClick={() => changeImage("prev")}>Previous</button> : ""}
+        <div className="show-container">
+            <p>{new Date(props.image.lastModified).toLocaleString()}</p>
+            <div className="image-container">
+                {(props.image.id !== 1) ? <button id="button" onClick={() => changeImage("prev")}>PREVIOUS</button> : ""}
                 <img className="image-show" src={props.image.url}></img>
-                <button onClick={() => changeImage("next")}>Next</button>
+                <button onClick={() => changeImage("next")}>NEXT</button>
             </div>
-            <form onSubmit={handleSubmit}>
-                <label>Foaming
-                    <input type="radio" checked={foamType === 'foaming'} name="option" value="foaming" onChange={update}></input>
-                </label>
-                <label>Non-Foaming
-                    <input type="radio" checked={foamType === 'non-foaming'} name="option" value="non-foaming" onChange={update}></input>
-                </label>
-                <label>Unclassified
-                    <input type="radio" checked={foamType === 'unclassified'} name="option" value="unclassified" onChange={update}></input>
-                </label>
-                <input type="submit"></input>
-            </form>
+            <div className="foaming-options">
+                <form onSubmit={handleSubmit}>
+                    <label className="label">Foaming
+                        <input type="radio" checked={foamType === 'foaming'} name="option" value="foaming" onChange={update}></input>
+                    </label>
+                    <label>Non-Foaming
+                        <input type="radio" checked={foamType === 'non-foaming'} name="option" value="non-foaming" onChange={update}></input>
+                    </label>
+                    <label>Unclassified
+                        <input type="radio" checked={foamType === 'unclassified'} name="option" value="unclassified" onChange={update}></input>
+                    </label>
+                    <input className="submit" type="submit"></input>
+                </form>
+            </div>
         </div>
     )
 

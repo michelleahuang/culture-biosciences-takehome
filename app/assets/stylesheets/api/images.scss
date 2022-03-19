@@ -14,6 +14,8 @@
     font-family: 'Spartan', sans-serif;
     font-size: 14px;
     padding: 5px 0;
+    width: 160px;
+    margin-bottom: 15px;
 }
 
 .image-grid {
@@ -62,12 +64,78 @@
     color: #343434;
 }
 
+.show-container {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-container p {
+    font-family: 'Spartan', sans-serif;
+    font-size: 14px;
+    color: #343434;
+    margin-bottom: 5px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container button {
+    margin: 15px;
+    padding: 10px 20px;    
+    background-color: #fcce3b;
+    color: #343434;
+    letter-spacing: 1.17px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    outline: none;
+}
+
+.image-container button:hover, .submit:hover {
+    color: white;
+    background-color: #091748;
+}
+
 .image-show {
-    width: 50%;
+    width: 600px;
     object-fit: contain;
 }
 
-.selector {
-    width: 160px;
-    margin-bottom: 15px;
+.foaming-options {
+    width: 600px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.show-container form {
+    width: 100%;
+    margin-left: 17px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+label {
+    margin: auto;
+}
+
+input[type="radio"] {
+    margin-left: 5px;
+}
+
+.submit {
+    padding: 5px 10px;    
+    background-color: #fcce3b;
+    color: #343434;
+    letter-spacing: 1.17px;
+    text-decoration: none;
+    font-size: 14px;
+    outline: none;
 }
