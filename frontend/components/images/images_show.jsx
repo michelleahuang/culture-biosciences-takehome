@@ -22,14 +22,22 @@ function ImagesShow(props) {
         props.history.push(`/images/${type === "prev" ? props.image.id - 1 : props.image.id + 1}`)
     }
 
+    function handleKeyPress(e) {
+        if (e.key === "ArrowRight") {
+            changeImage('next')
+        } else if (e.key === "ArrowLeft") {
+            changeImage('prev')
+        }
+    }
+
     return (
         <div>
             {new Date(props.image.lastModified).toLocaleString()}
             <div>
                 
-                {(props.image.id !== 1) ? <button onClick={() => changeImage("prev")}>Previous</button> : ""}
+                {(props.image.id !== 1) ? <button onClick={() => changeImage("prev")} onKeyDown={handleKeyPress}>Previous</button> : ""}
                 <img className="image-show" src={props.image.url}></img>
-                <button onClick={() => changeImage("next")}>Next</button>
+                <button onClick={() => changeImage("next")} onKeyDown={handleKeyPress}>Next</button>
             </div>
             <form onSubmit={handleSubmit}>
                 <label>Foaming
