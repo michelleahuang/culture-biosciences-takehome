@@ -22,12 +22,13 @@ Once all commands are run, open localhost to view the project!
 
 ## Features
 * ### View Images from the Reactor Run
-
+![View Images](app/assets/images/readme_view_images.gif)
 * ### Mark Images as Foaming, Non-Foaming, or Unclassified (Have Marks Persist)
 
 * ### Filter by Foaming, Non-Foaming, and Unclassified
 
 * ### Pagination
+To integrate pagination, I chose to 
 * ### Keyboard Shortcuts
 
 ## Wireframes
