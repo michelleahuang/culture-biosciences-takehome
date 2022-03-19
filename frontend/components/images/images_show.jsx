@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState, useRef }  from 'react';
 import { withRouter } from 'react-router-dom';
 
 function ImagesShow(props) {
@@ -22,22 +22,45 @@ function ImagesShow(props) {
         props.history.push(`/images/${type === "prev" ? props.image.id - 1 : props.image.id + 1}`)
     }
 
-    function handleKeyPress(e) {
-        if (e.key === "ArrowRight") {
-            changeImage('next')
-        } else if (e.key === "ArrowLeft") {
-            changeImage('prev')
+    function useKey(key, cb) {
+        const callbackRef = useRef(cb);
+
+        useEffect(() => {
+            callbackRef.current = cb;
+        })
+
+        useEffect(() => {
+            function handle(e) {
+                if (e.code === key) {
+                    callbackRef.current(e);
+                }
+            }
+
+            document.addEventListener('keydown', handle);
+            return () => document.removeEventListener('keydown', handle)
+        }, [key])
+    }
+
+    function handleRight() {
+        changeImage("next");
+    }
+
+    function handleLeft() {
+        if (props.image.id !== 1) {
+            changeImage("prev");
         }
     }
+
+    useKey("ArrowRight", handleRight)
+    useKey("ArrowLeft", handleLeft)
 
     return (
         <div>
             {new Date(props.image.lastModified).toLocaleString()}
             <div>
-                
-                {(props.image.id !== 1) ? <button onClick={() => changeImage("prev")} onKeyDown={handleKeyPress}>Previous</button> : ""}
+                {(props.image.id !== 1) ? <button id="button" onClick={() => changeImage("prev")}>Previous</button> : ""}
                 <img className="image-show" src={props.image.url}></img>
-                <button onClick={() => changeImage("next")} onKeyDown={handleKeyPress}>Next</button>
+                <button onClick={() => changeImage("next")}>Next</button>
             </div>
             <form onSubmit={handleSubmit}>
                 <label>Foaming
@@ -57,4 +80,3 @@ function ImagesShow(props) {
 }
 
 export default ImagesShow;
-// export default withRouter(ImagesShow);
