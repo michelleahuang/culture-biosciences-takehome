@@ -24,6 +24,7 @@ function ImagesShow(props) {
 
     return (
         <div>
+            {new Date(props.image.lastModified).toLocaleString()}
             <div>
                 
                 {(props.image.id !== 1) ? <button onClick={() => changeImage("prev")}>Previous</button> : ""}

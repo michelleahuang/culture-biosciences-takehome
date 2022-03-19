@@ -56,8 +56,12 @@ function ImagesIndex(props) {
                     {currentImages.map((image, idx) => {
                         return (
                             <li key={idx}>
-                                <img className="image" src={image.url}></img>
-                                <Link to={`/images/${image.id}`}>Go to Image</Link>
+                                <Link to={`/images/${image.id}`}>
+                                    <img className={image.foamType === "unclassified" ? "u-image" : "image"} src={image.url}></img>
+                                </Link>
+                                {image.foamType[0].toUpperCase() + image.foamType.slice(1)}
+                                <br/>
+                                {new Date(image.lastModified).toLocaleString()}
                             </li>
                         )
                     })}
