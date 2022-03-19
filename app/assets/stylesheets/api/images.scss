@@ -7,6 +7,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+}
+
+.selector {
+    font-family: 'Spartan', sans-serif;
+    font-size: 14px;
+    padding: 5px 0;
 }
 
 .image-grid {
@@ -30,11 +37,37 @@
 }
 
 .u-image {
-    border: 3px solid red;
+    border: 3px solid #fcce3b;
     width: 100%;
     object-fit: contain;
 }
 
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.details {
+    margin-top: 5px;
+}
+
+.details p {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-family: 'Spartan', sans-serif;
+    font-size: 14px;
+    color: #343434;
+}
+
 .image-show {
     width: 50%;
+    object-fit: contain;
+}
+
+.selector {
+    width: 160px;
+    margin-bottom: 15px;
 }

@@ -45,23 +45,24 @@ function ImagesIndex(props) {
 
     return (
         <>
-            <select onChange={filterType}>
-                <option value="all" onChange={filterType}>All</option>
-                <option value="foaming" onChange={filterType}>Foaming</option>
-                <option value="non-foaming" onChange={filterType}>Non-Foaming</option>
-                <option value="unclassified" onChange={filterType}>Unclassified</option>
-            </select>
             <div className="index-container">
+                <select className="selector" onChange={filterType}>
+                    <option value="all" onChange={filterType}>All</option>
+                    <option value="foaming" onChange={filterType}>Foaming</option>
+                    <option value="non-foaming" onChange={filterType}>Non-Foaming</option>
+                    <option value="unclassified" onChange={filterType}>Unclassified</option>
+                </select>
                 <ul className="image-grid" >
                     {currentImages.map((image, idx) => {
                         return (
-                            <li key={idx}>
+                            <li className="grid-item"key={idx}>
                                 <Link to={`/images/${image.id}`}>
                                     <img className={image.foamType === "unclassified" ? "u-image" : "image"} src={image.url}></img>
                                 </Link>
-                                {image.foamType[0].toUpperCase() + image.foamType.slice(1)}
-                                <br/>
-                                {new Date(image.lastModified).toLocaleString()}
+                                <div className="details">
+                                    <p>{image.foamType[0].toUpperCase() + image.foamType.slice(1)}</p>
+                                    <p>{new Date(image.lastModified).toLocaleString()}</p>
+                                </div>
                             </li>
                         )
                     })}
