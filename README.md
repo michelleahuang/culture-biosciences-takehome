@@ -28,8 +28,45 @@ Once all commands are run, open localhost to view the project!
 * ### Filter by Foaming, Non-Foaming, and Unclassified
 ![Filter Images](app/assets/images/readme_filter_images.gif)
 * ### Pagination
-To integrate pagination, I chose to 
+To integrate frontend pagination, I chose to display 100 images on each page and have my local state hold the images that matched the filter type (foaming, non-foaming, unclassified, or all). The paginate function that occurs on click is placed on the Pagination component and is responsible for setting the current page to the correct one using the useState React hook.
+```javascript
+const [currentPage, setCurrentPage] = useState(1);
+const [imagesPerPage, setImagesPerPage] = useState(100);
+const [allImages, setAllImages] = useState([]);
+const [filteredImages, setFilteredImages] = useState([]);
+
+const indexOfLastImage = currentPage * imagesPerPage;
+const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
+
+const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+}
+
+function Pagination( {imagesPerPage, totalImages, paginate}) {
+    const imageNumbers = [];
+
+    for (let i = 1; i <= Math.ceil(totalImages / imagesPerPage); i++) {
+        imageNumbers.push(i);
+    }
+
+
+    return (
+        <div>
+            <ul className="pagination">
+                {imageNumbers.map(number => 
+                    <li key={number} className="page-item">
+                        <a onClick={() => paginate(number)} href="#" className="page-link">{number}</a>
+                    </li>
+                )}
+            </ul>
+        </div>
+    )
+
+}
+```
 * ### Keyboard Shortcuts
+
 
 ## Wireframes
 * ### Index Page
