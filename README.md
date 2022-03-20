@@ -66,8 +66,29 @@ function Pagination( {imagesPerPage, totalImages, paginate}) {
 }
 ```
 * ### Keyboard Shortcuts
+When on an image's show page, users are able to use their keyboard's right and left arrow keys to go to the next image's page or go back to the previous image's page. By using the useRef and useEffect hooks, I was able to effectively pass down a callback function that would push the new image's id onto history - thus, rendering a new image's page. 
+```javascript
+function useKey(key, cb) {
+    const callbackRef = useRef(cb);
 
+    useEffect(() => {
+        callbackRef.current = cb;
+    })
+    
+    useEffect(() => {
+        function handle(e) {
+            if (e.code === key) {
+                callbackRef.current(e);
+            }
+        }
+        document.addEventListener('keydown', handle);
+        return () => document.removeEventListener('keydown', handle)
+    }, [key]) 
+}
 
+useKey("ArrowRight", handleRight)
+useKey("ArrowLeft", handleLeft)
+```
 ## Wireframes
 * ### Index Page
 ![](app/assets/images/readme_index.png)

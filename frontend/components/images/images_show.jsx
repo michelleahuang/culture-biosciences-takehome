@@ -25,6 +25,7 @@ function ImagesShow(props) {
     function useKey(key, cb) {
         const callbackRef = useRef(cb);
 
+        // for each render, updating the callbackRef's current value to the callback
         useEffect(() => {
             callbackRef.current = cb;
         })
@@ -38,7 +39,7 @@ function ImagesShow(props) {
 
             document.addEventListener('keydown', handle);
             return () => document.removeEventListener('keydown', handle)
-        }, [key])
+        }, [key]) // add key as dependency to ensure that if the key changes, useEffect runs
     }
 
     function handleRight() {
