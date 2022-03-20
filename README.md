@@ -9,7 +9,6 @@ To improve user experience, results are paginated so only 100 images are display
 ## Run the Project
 * npm install
 * bundle install
-* npm start
 * rails s 
 
 Once all commands are run, open localhost to view the project!

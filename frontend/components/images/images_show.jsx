@@ -59,7 +59,7 @@ function ImagesShow(props) {
         <div className="show-container">
             <p>{new Date(props.image.lastModified).toLocaleString()}</p>
             <div className="image-container">
-                {(props.image.id !== 1) ? <button id="button" onClick={() => changeImage("prev")}>PREVIOUS</button> : ""}
+                {(props.image.id !== 1) ? <button id="button" onClick={() => changeImage("prev")}>PREVIOUS</button> : <button id="button-placeholder" >PREVIOUS</button>}
                 <img className="image-show" src={props.image.url}></img>
                 <button onClick={() => changeImage("next")}>NEXT</button>
             </div>
