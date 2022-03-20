@@ -24,9 +24,9 @@ Once all commands are run, open localhost to view the project!
 * ### View Images from the Reactor Run
 ![View Images](app/assets/images/readme_view_images.gif)
 * ### Mark Images as Foaming, Non-Foaming, or Unclassified (Have Marks Persist)
-
+![Mark Images](app/assets/images/readme_mark_images.gif)
 * ### Filter by Foaming, Non-Foaming, and Unclassified
-
+![Filter Images](app/assets/images/readme_filter_images.gif)
 * ### Pagination
 To integrate pagination, I chose to 
 * ### Keyboard Shortcuts
