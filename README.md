@@ -49,7 +49,6 @@ function Pagination( {imagesPerPage, totalImages, paginate}) {
         imageNumbers.push(i);
     }
 
-
     return (
         <div>
             <ul className="pagination">
